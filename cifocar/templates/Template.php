@@ -6,12 +6,12 @@
 			<header>
 				<figure>
 					<a href="index.php">
-						<img alt="Robs Micro Framework logo" src="images/logos/logo.png" />
+						<img alt="logo concesionario Cifocar" src="images/logos/logo.png" />
 					</a>
 				</figure>
 				<hgroup>
-					<h1>RMF - RobS Micro Framework</h1>
-					<h2>Para el desarrollo de aplicaciones web</h2>
+					<h1>Concesionario Cifocar</h1>
+					<h2>Desarrollo proyecto fin curso</h2>
 				</hgroup>
 			</header>
 		<?php }

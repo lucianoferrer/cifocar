@@ -1,0 +1,8 @@
+Options -Indexes
+
+RewriteEngine on
+RewriteBase /
+
+RewriteRule ^(index\.php)?/(\w+)/?$ index.php?controlador=$2 [NC,L] 
+RewriteRule ^(index\.php)?/(\w+)/(\w+)/?$ index.php?controlador=$2&operacion=$3 [NC,L]
+RewriteRule ^(index\.php)?/(\w+)/(\w+)/([^\/]+)/?$ index.php?controlador=$2&operacion=$3&parametro=$4 [NC,L] 

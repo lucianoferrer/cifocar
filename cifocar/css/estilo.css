@@ -1,0 +1,211 @@
+/*
+	Estilo básico del RMF
+
+	autor: Robert Sallent
+	última revisión: 06/11/2016
+*/
+
+
+
+/* ------------------------------------------------------------------------------------
+RESET DE ESTILO Y REGLAS GENERALES 
+------------------------------------------------------------------------------------ */
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+.izquierda{float: left;}
+.derecha{float: right;}
+.clear{clear: both;}
+.mini{font-size: 0.8em;}
+.maxi{font-size: 1.2em;}
+.exito{color: #3a3;}
+.error{color: #a33;}
+
+h1, h2, h3{
+	margin: 10px 0px 10px 0px;
+}
+
+p{
+	margin-bottom: 10px;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+img.logo{
+	height: 30px;
+	width: 30px;
+	vertical-align: middle;
+}
+
+/* ------------------------------------------------------------------------------------
+INICIO DE LOS ESTILOS PARA CADA UNO DE LOS ELEMENTOS 
+------------------------------------------------------------------------------------ */
+
+html{
+	background-color: #eef;
+}
+
+body{
+	background-color: #fff;
+	font-family: arial, verdana;
+	width: 80%;
+	padding: 2%;
+	margin: 10px auto 10px auto;
+	box-shadow: 0px 0px 4px rgba(60,60,60,0.6);	
+}
+
+
+/* HEADER */
+header{
+	padding: 20px;
+	background-color: #eef;
+	color: white;
+	text-shadow: 1px 1px 3px #99a;
+}
+
+header{
+	display: flex;
+}
+
+header h1{
+	font-size: 3vw;	
+}
+header h2{
+	font-size: 2vw;	
+}
+
+header figure{
+	flex: 1;
+}
+
+header figure img{
+	width: 80%;
+}
+
+header hgroup{
+	flex: 5;
+}
+
+
+/* ZONAS DE LOGIN Y LOGOUT */
+#login, #logout{
+	text-align: right;
+	padding: 5px 0px 5px 0px;
+}
+
+#login input{
+	width: 80px;
+}
+
+#logout img{
+	display: inline-block;	
+	vertical-align: middle;
+	width: 30px;
+	height: 30px;
+}
+
+#logout form{
+	display: inline-block;
+}
+
+#login a, #logout a{
+	color: #aaf;	
+	font-weight: bold;
+}
+
+
+/* BARRA DE NAVEGACION */
+nav{
+	background-color: #aaf;
+	color: white;
+	display: flex;
+	border: solid 2px #aaf;
+}
+
+nav ul{
+	flex: 1;
+}
+
+nav ul:first-of-type{
+	text-align: left;
+}
+
+nav ul:nth-of-type(2){
+	text-align: right;
+}
+
+nav ul.menu>li{
+	display: inline-block;
+	list-style-type: none;
+	padding: 8px;	
+	transition: 0.5s;
+}
+nav ul.menu>li:hover{
+	color: #aaf;
+	background-color: white;	
+}
+
+/* AREA PARA EL CONTENIDO */
+#content{
+	padding: 20px 0px 20px 0px;
+}
+
+#content p{
+	text-align: justify;
+}
+
+#content table{
+	margin: auto;
+	width: 90%;
+}
+
+#content table th{
+	color: white;
+	background-color: blue;
+	text-align: center;
+	font-weight: bold;
+}
+#content table td, #content table th{
+	padding: 10px;
+}
+#content table tr:nth-of-type(even){
+	background-color: #eef;
+}
+
+#content form input{
+	margin-top: 5px;
+	padding: 4px;
+}
+#content form label{
+	display: inline-block;
+	min-width: 140px;
+}
+
+#content form img.imagenactual{
+	width: 100px;
+	height: 110px;
+	margin: 10px;
+	float: right;
+}
+
+
+/* FOOTER */
+footer{
+	padding: 20px;
+	background-color: #eef;
+	
+	background-image: url('../images/logos/wide.png');
+	background-repeat: no-repeat;
+	background-size: 40%;
+	background-position: right top;
+}
+
+footer a:hover{
+	color: blue;
+}

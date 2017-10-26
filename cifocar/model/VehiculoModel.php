@@ -8,12 +8,18 @@
 		//METODOS
 		//guarda el vehiculo en la BDD
 		public function guardar(){
+		    if (empty($this->imagen))
+		        $img='DEFAULT';
+	        else
+                $img="'".$this->imagen."'"; 
+		    
 			$consulta = "INSERT INTO vehiculos(id, matricula, modelo, color,precio_venta ,
 	           precio_compra ,kms ,caballos ,fecha_venta ,
-	           estado ,any_matriculacion ,detalles ,imagen)
-			VALUES ($this->id, '$this->matricula', '$this->modelo', '$this->color', $this->precio_venta,
+	           estado ,any_matriculacion ,detalles ,imagen,vendedor,marca)
+			VALUES (DEFAULT, '$this->matricula', '$this->modelo', '$this->color', $this->precio_venta,
 	           $this->precio_compra ,$this->kms ,$this->caballos ,'$this->fecha_venta' ,
-	           $this->estado,$this->any_matriculacion ,'$this->detalles' ,'$this->imagen';";
+	           $this->estado,$this->any_matriculacion ,'$this->detalles' ,$img,$this->vendedor,'$this->marca');";
+			echo $consulta;
 			return Database::get()->query($consulta);
 		}
 		
@@ -73,7 +79,7 @@
 		}
 		//EJEMPLO DE USO (1):
 		// $vehiculo = VehiculoModel::getVehiculo(6);
-		// $marca->borrar2();
+		// $vehiculo->borrar2();
 		
 		//este método sirve para comprobar si existe el vehiculo (en la BDD)
 		public static function validar($v){
@@ -95,7 +101,7 @@
 			if(!$resultado) return null;
 			
 			//convertir el resultado en un objeto VehiculoModel
-			$mar = $resultado->fetch_object('VehiculoModel');
+			$veh = $resultado->fetch_object('VehiculoModel');
 			//liberar memoria
 			$resultado->free();
 			
@@ -117,7 +123,7 @@
 		    $conexion = Database::get();
 		    $resultados = $conexion->query($consulta);
 		    
-		    //creo la lista de MarcaModel
+		    //creo la lista de VehiculoModel
 		    $lista = array();
 		    while($vehiculo = $resultados->fetch_object('VehiculoModel'))
 		        $lista[] = $vehiculo;

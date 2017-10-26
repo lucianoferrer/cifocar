@@ -7,7 +7,8 @@
 		//guarda la marca en la BDD
 		public function guardar(){
 			$consulta = "INSERT INTO marcas(marca)
-			VALUES ('$this->marca';";
+			VALUES ('$this->marca');";
+			echo $consulta;
 			return Database::get()->query($consulta);
 		}
 		//método que me recupera el total de registros (incluso con filtros)
@@ -23,29 +24,18 @@
 		}
 		
 		//actualiza los datos de la marca en la BDD
-		public function actualizar(){
+		public function actualizar($marcaold){
 			$consulta = "UPDATE marcas
-							  SET marca='$this->marca', 
-							  WHERE marca='$this->marca';";
+							  SET marca='$this->marca' 
+							  WHERE marca='$marcaold';";
+			echo $consulta;
 			return Database::get()->query($consulta);
 		}
 		
-		//Método que borra una marca de la BDD (estático)
-		//PROTOTIPO: public static boolean borrar(string $marca)
-		public static function borrar($marca){
-		    $consulta = "DELETE FROM recetas
-                         WHERE marca='$marca';";
-		    
-		    $conexion = Database::get(); //conecta
-		    $conexion->query($consulta); //ejecuta consulta
-		    return $conexion->affected_rows; //devuelve el num de filas afectadas
-		}
-		//EJEMPLO DE USO
-		//MarcaModel::borrar('mazda')
 		
 		//Método que borra una marca de la BDD (de objeto)
 		//PROTOTIPO: public boolean borrar2()
-		public function borrar2(){
+		public function borrar(){
 		    $consulta = "DELETE FROM marcas
                          WHERE marca='$this->marca';";
 		    

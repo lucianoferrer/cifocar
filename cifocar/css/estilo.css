@@ -1,5 +1,5 @@
 /*
-	Estilo básico del RMF
+	Estilo básico del RMF recetas
 
 	autor: Robert Sallent
 	última revisión: 06/11/2016
@@ -37,11 +37,12 @@ a{
 	cursor: pointer;
 }
 
-img.logo{
+img.logo, img.boton{
 	height: 30px;
 	width: 30px;
 	vertical-align: middle;
 }
+
 
 /* ------------------------------------------------------------------------------------
 INICIO DE LOS ESTILOS PARA CADA UNO DE LOS ELEMENTOS 
@@ -49,15 +50,19 @@ INICIO DE LOS ESTILOS PARA CADA UNO DE LOS ELEMENTOS
 
 html{
 	background-color: #eef;
+	background-image: url('../images/template/background.jpg');
+	background-size: 100% 100%;
+	background-attachment: fixed;
 }
 
 body{
-	background-color: #fff;
+	background-color: rgba(255,255,255,0.90);
 	font-family: arial, verdana;
-	width: 80%;
+	width: 90%;
 	padding: 2%;
 	margin: 10px auto 10px auto;
-	box-shadow: 0px 0px 4px rgba(60,60,60,0.6);	
+	box-shadow: 0px 0px 8px rgb(60,60,60);	
+	
 }
 
 
@@ -65,8 +70,13 @@ body{
 header{
 	padding: 20px;
 	background-color: #eef;
+	background-image: url('../images/template/header.jpg');
+	background-size: 120%;
+	background-position: 0% 50%;
+	background-repeat: no-repeat;
 	color: white;
-	text-shadow: 1px 1px 3px #99a;
+	text-shadow: 1px 1px 3px #000;
+	border: solid 2px orange;
 }
 
 header{
@@ -74,10 +84,10 @@ header{
 }
 
 header h1{
-	font-size: 3vw;	
+	font-size: 5vw;	
 }
 header h2{
-	font-size: 2vw;	
+	font-size: 2.5vw;	
 }
 
 header figure{
@@ -85,7 +95,8 @@ header figure{
 }
 
 header figure img{
-	width: 80%;
+	vertical-align: middle;
+	width: 95%;
 }
 
 header hgroup{
@@ -115,17 +126,16 @@ header hgroup{
 }
 
 #login a, #logout a{
-	color: #aaf;	
+	color: orange;	
 	font-weight: bold;
 }
 
 
 /* BARRA DE NAVEGACION */
 nav{
-	background-color: #aaf;
+	background-color: orange;
 	color: white;
 	display: flex;
-	border: solid 2px #aaf;
 }
 
 nav ul{
@@ -147,7 +157,7 @@ nav ul.menu>li{
 	transition: 0.5s;
 }
 nav ul.menu>li:hover{
-	color: #aaf;
+	color: orange;
 	background-color: white;	
 }
 
@@ -160,29 +170,64 @@ nav ul.menu>li:hover{
 	text-align: justify;
 }
 
+#content p.volver{
+	cursor:pointer;
+	text-align: center;
+	margin: 20px;
+	color: brown;
+	font-weight: bold;
+	width: 100%;
+}
+
+#content h1, #content h2{
+	color: orange;
+}
+
 #content table{
 	margin: auto;
-	width: 90%;
+	width: 100%;
 }
 
 #content table th{
 	color: white;
-	background-color: blue;
+	background-color: orange;
 	text-align: center;
 	font-weight: bold;
 }
 #content table td, #content table th{
-	padding: 10px;
+	padding: 2px;
 }
 #content table tr:nth-of-type(even){
-	background-color: #eef;
+	background-color: #fea;
+}
+#content table tr:nth-of-type(odd){
+	background-color: white;
+}
+
+#content table td.foto{
+	text-align: center;
+}
+
+#content table img.miniatura{
+	height: 40px;
+	width: 40px;
+	border:solid 2px orange;
+}
+
+#content table .boton{
+	height: 20px;
+	width: 20px;
+}
+
+#content form{
+	padding: 10px;
 }
 
 #content form input{
 	margin-top: 5px;
 	padding: 4px;
 }
-#content form label{
+#content form:not(.filtro) label{
 	display: inline-block;
 	min-width: 140px;
 }
@@ -194,18 +239,84 @@ nav ul.menu>li:hover{
 	float: right;
 }
 
+#content form.filtro{
+	text-align: right;
+	padding: 2px;	
+}
 
+#content form.filtro label{
+	color: orange;
+	font-style: italic;
+}
+
+#content .contenedor{
+	display: flex;
+}
+
+#content .contenedor .texto{
+	flex: 3;
+	border-radius: 5px;
+	background-color: white;
+	padding: 3%;
+	margin: 10px 3% 10px 0%;
+	box-shadow: 0px 0px 4px orange;
+}
+
+#content .contenedor .imagen{
+	flex: 2;
+	text-align: center;
+}
+
+#content p.infolista{
+	color: brown;
+	font-style: italic;
+	margin: 10px 0px 10px 0px;
+}
+
+#content ul.paginacion li{
+	display: inline-block;
+	background-color: orange;
+	color: white;
+	padding: 5px;
+	transition: 0.5s;
+}
+
+#content ul.paginacion li:hover{
+	background-color: white;
+	color: orange;
+	box-shadow: 0px 0px 2px orange;
+}
+
+#content ul.paginacion{
+	margin-top: 5px;
+	text-align: right;
+}
+#content ul.paginacion li:not(:first-of-type){
+	border-left: solid 3px white;
+}
+
+#content .contenedor .imagen img:not(.boton){
+	width: 80%;
+	margin: 10px;
+	border: solid 4px white;
+}
+
+#content .contenedor .imagen figcaption{
+	font-size: 0.9em;
+	font-style: italic;
+}
+	
 /* FOOTER */
 footer{
 	padding: 20px;
-	background-color: #eef;
+	background-color: orange;
 	
 	background-image: url('../images/logos/wide.png');
 	background-repeat: no-repeat;
-	background-size: 40%;
-	background-position: right top;
+	background-size: 30%;
+	background-position: right;
 }
 
 footer a:hover{
-	color: blue;
+	color: orange;
 }

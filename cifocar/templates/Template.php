@@ -49,13 +49,15 @@
 			<nav>
 				<ul class="menu">
 					<li><a href="index.php">Inicio</a></li>
-					<li><a href="index.php?controlador=Usuario&operacion=registro">Registro</a></li>
 				</ul>
 				<?php 
 				//pone el menú del administrador
 				if($usuario && $usuario->admin){	?>
 				<ul class="menu">
 					<li><a href="#">ADMIN</a></li>
+					<li><a href="index.php?controlador=Usuario&operacion=registro">Registro</a></li>
+					<li><a href="index.php?controlador=Usuario&operacion=listar">Usuarios</a></li>
+					<li><a href="index.php?controlador=Vehiculo&operacion=modificacion">Vehiculos</a></li>
 				</ul>
 							
 				<?php }	?>

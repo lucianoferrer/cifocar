@@ -14,7 +14,6 @@
 			    
 			$consulta = "INSERT INTO $user_table(user, password, nombre, privilegio, admin, email, imagen)
 			VALUES ('$this->user','$this->password','$this->nombre',$this->privilegio,$this->admin,'$this->email', $img);";
-			echo $consulta;	
 			return Database::get()->query($consulta);
 		}
 		
@@ -66,9 +65,10 @@
 			
 			return $us;
 		}
+		
 		public static function getUsuarios($l=10, $o=0, $t='', $c='nombre', $co='nombre', $so='ASC'){
 		    //preparar la consulta
-		    $consulta = "SELECT * FROM marcas
+		    $consulta = "SELECT * FROM usuarios
                          WHERE $c LIKE '%$t%'
                          ORDER BY $co $so
 		                 LIMIT $l
@@ -88,6 +88,18 @@
 		        
 		        //retornar la lista de UsuarioModel
 		        return $lista;
+		}
+		
+		//método que me recupera el total de registros (incluso con filtros)
+		public static function getTotal($t='', $c='nombre'){
+		    $consulta = "SELECT * FROM usuarios
+                         WHERE $c LIKE '%$t%'";
+		    
+		    $conexion = Database::get();
+		    $resultados = $conexion->query($consulta);
+		    $total = $resultados->num_rows;
+		    $resultados->free();
+		    return $total;
 		}
 	}
 ?>

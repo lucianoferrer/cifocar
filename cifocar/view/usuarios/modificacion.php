@@ -50,10 +50,22 @@
 				<label>Nombre:</label>
 				<input type="text" name="nombre" required="required" 
 					value="<?php echo $usuario->nombre;?>"/><br/>
-				
+
+			<label>Privilegio:</label>
+<!-- 				<input type="number" name="privilegio" required="required"/><br/> -->
+				<select name="privilegio">
+                  <option value="0">Admin</option>
+                  <option value="1">Compras</option>
+                  <option value="2" selected>Vendedor</option>
+				</select>
+				</br>
+								
 				<label>Email:</label>
 				<input type="email" name="email" required="required" 
 					value="<?php echo $usuario->email;?>"/><br/>
+				
+				<label>Admin:</label>
+				<input type="checkbox" name="admin" value="0"/><br/>
 				
 				<label>Nueva imagen:</label>
 				<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max_image_size;?>" />		

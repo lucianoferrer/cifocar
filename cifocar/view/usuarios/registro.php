@@ -32,10 +32,21 @@
 				
 				<label>Nombre:</label>
 				<input type="text" name="nombre" required="required"/><br/>
-				
+
+				<label>Privilegio:</label>
+<!-- 				<input type="number" name="privilegio" required="required"/><br/> -->
+				<select name="privilegio">
+                  <option value="0">Admin</option>
+                  <option value="1">Compras</option>
+                  <option value="2" selected="selected">Vendedor</option>
+				</select>
+				</br>
 				<label>Email:</label>
 				<input type="email" name="email" required="required"/><br/>
-				
+
+				<label>Admin:</label>
+				<input type="checkbox" name="admin" value="1"/><br/>
+
 				<label>Imagen:</label>
 				<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max_image_size;?>" />		
 				<input type="file" accept="image/*" name="imagen" />

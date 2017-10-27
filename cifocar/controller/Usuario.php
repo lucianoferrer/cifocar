@@ -8,7 +8,6 @@
 
 			//si no llegan los datos a guardar
 			if(empty($_POST['guardar'])){
-				
 				//mostramos la vista del formulario
 				$datos = array();
 				$datos['usuario'] = Login::getUsuario();
@@ -17,7 +16,7 @@
 			
 			//si llegan los datos por POST
 			}else{
-				//crear una instancia de Usuario
+			    //crear una instancia de Usuario
 				$u = new UsuarioModel();
 				$conexion = Database::get();
 				
@@ -26,8 +25,10 @@
 				$u->user = $conexion->real_escape_string($_POST['user']);
 				$u->password = MD5($conexion->real_escape_string($_POST['password']));
 				$u->nombre = $conexion->real_escape_string($_POST['nombre']);
+				$u->privilegio = intval($_POST['privilegio']);
 				$u->email = $conexion->real_escape_string($_POST['email']);
 				$u->imagen = Config::get()->default_user_image;
+				$u->admin= !empty($_POST['admin'])?0:1 ;//si esta vacio como es null guarda 0 y si tiene valor como es true guarad 1 
 				
 				//recuperar y guardar la imagen (solamente si ha sido enviada)
 				if($_FILES['imagen']['error']!=4){
@@ -122,6 +123,66 @@
 				$datos['mensaje'] = 'Modificación OK';
 				$this->load_view('view/exito.php', $datos);
 			}
+		}
+		
+		//PROCEDIMIENTO PARA LISTAR LOS USUARIOS
+		public function listar($pagina){
+		    $this->load('model/UsuarioModel.php');
+		    
+		    //si me piden APLICAR un filtro
+		    if(!empty($_POST['filtrar'])){
+		        //recupera el filtro a aplicar
+		        $f = new stdClass(); //filtro
+		        $f->texto = htmlspecialchars($_POST['texto']);
+		        $f->campo = htmlspecialchars($_POST['campo']);
+		        $f->campoOrden = htmlspecialchars($_POST['campoOrden']);
+		        $f->sentidoOrden = htmlspecialchars($_POST['sentidoOrden']);
+		        
+		        //guarda el filtro en un var de sesión
+		        $_SESSION['filtroUsuario'] = serialize($f);
+		    }
+		    
+		    //si me piden QUITAR un filtro
+		    if(!empty($_POST['quitarFiltro']))
+		        unset($_SESSION['filtroUsuario']);
+		        
+		        
+		        //comprobar si hay filtro
+		        $filtro = empty($_SESSION['filtroUsuario'])? false : unserialize($_SESSION['filtroUsuario']);
+		        //para la paginación
+		        $num = 10; //numero de resultados por página
+		        $pagina = abs(intval($pagina)); //para evitar cosas raras por url
+		        $pagina = empty($pagina)? 1 : $pagina; //página a mostrar
+		        $offset = $num*($pagina-1); //offset
+		        
+		        //si no hay que filtrar los resultados...
+		        if(!$filtro){
+		            //recupera todos los usuarios
+		            $usuario = UsuarioModel::getUsuarios($num, $offset);
+		            //total de registros (para paginación)
+		            $totalRegistros = UsuarioModel::getTotal();
+		        }else{
+		            //recupera los usuarios con el filtro aplicado
+		            $usuario = UsuarioModel::getUsuarios($num, $offset, $filtro->texto, $filtro->campo, $filtro->campoOrden, $filtro->sentidoOrden);
+		            //total de registros (para paginación)
+		            $totalRegistros = UsuarioModel::getTotal($filtro->texto, $filtro->campo);
+		        }
+		        
+		        //cargar la vista del listado
+		        $datos = array();
+		        $datos['usuario'] = Login::getUsuario();
+		        $datos['usuarios'] = $usuario;
+		        $datos['filtro'] = $filtro;
+		        $datos['paginaActual'] = $pagina;
+		        $datos['paginas'] = ceil($totalRegistros/$num); //total de páginas (para paginación)
+		        $datos['totalRegistros'] = $totalRegistros;
+		        $datos['regPorPagina'] = $num;
+		        
+		        if(!Login::isAdmin())
+		            throw new Exception('Debes ser administrador');
+	            $this->load_view('view/usuarios/lista_admin.php', $datos);
+// 		            else
+// 		                $this->load_view('view/usuarios/lista.php', $datos);
 		}
 		
 		

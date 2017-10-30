@@ -3,7 +3,7 @@
 		//PROPIEDADES
 	    public $id, $matricula, $modelo, $color,$precio_venta ,
 	           $precio_compra ,$kms ,$caballos ,$fecha_venta ,
-	           $estado ,$any_matriculacion ,$detalles ,$imagen;
+	           $estado ,$any_matriculacion ,$detalles ,$imagen, $vendedor,$marca;
 			
 		//METODOS
 		//guarda el vehiculo en la BDD
@@ -14,12 +14,10 @@
                 $img="'".$this->imagen."'"; 
 		    
 			$consulta = "INSERT INTO vehiculos(id, matricula, modelo, color,precio_venta ,
-	           precio_compra ,kms ,caballos ,fecha_venta ,
-	           estado ,any_matriculacion ,detalles ,imagen,vendedor,marca)
+	           precio_compra ,kms ,caballos,  estado ,any_matriculacion ,detalles ,imagen, marca)
 			VALUES (DEFAULT, '$this->matricula', '$this->modelo', '$this->color', $this->precio_venta,
-	           $this->precio_compra ,$this->kms ,$this->caballos ,'$this->fecha_venta' ,
-	           $this->estado,$this->any_matriculacion ,'$this->detalles' ,$img,$this->vendedor,'$this->marca');";
-			echo $consulta;
+	           $this->precio_compra ,$this->kms ,$this->caballos,
+	           $this->estado,$this->any_matriculacion ,'$this->detalles' ,$img, '$this->marca');";
 			return Database::get()->query($consulta);
 		}
 		
@@ -49,8 +47,9 @@
 	                             estado=$this->estado ,
 	                             any_matriculacion=$this->any_matriculacion ,
 	                             detalles='$this->detalles' ,
-	                             imagen='$this->imagen'; 
-                            WHERE id='$this->id';";
+                                 vendedor='$this->vendedor' ,	                             
+                                 imagen='$this->imagen' 
+                            WHERE id=$this->id;";
 			return Database::get()->query($consulta);
 		}
 		

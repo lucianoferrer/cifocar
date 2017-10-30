@@ -8,9 +8,10 @@
 		public function guardar(){
 			$consulta = "INSERT INTO marcas(marca)
 			VALUES ('$this->marca');";
-			echo $consulta;
+
 			return Database::get()->query($consulta);
 		}
+		
 		//método que me recupera el total de registros (incluso con filtros)
 		public static function getTotal($t='', $c='marca'){
 		    $consulta = "SELECT * FROM marcas
@@ -24,20 +25,20 @@
 		}
 		
 		//actualiza los datos de la marca en la BDD
-		public function actualizar($marcaold){
+		public static function actualizar($new, $old){
 			$consulta = "UPDATE marcas
-							  SET marca='$this->marca' 
-							  WHERE marca='$marcaold';";
-			echo $consulta;
-			return Database::get()->query($consulta);
+							  SET marca='$new' 
+							  WHERE marca='$old';";
+			Database::get()->query($consulta);
+			return Database::get()->affected_rows;
 		}
 		
 		
 		//Método que borra una marca de la BDD (de objeto)
-		//PROTOTIPO: public boolean borrar2()
-		public function borrar(){
+		//PROTOTIPO: public boolean borrar()
+		public static function borrar($marca){
 		    $consulta = "DELETE FROM marcas
-                         WHERE marca='$this->marca';";
+                         WHERE marca='$marca->marca';";
 		    
 		    $conexion = Database::get(); //conecta
 		    $conexion->query($consulta); //ejecuta consulta
@@ -45,7 +46,6 @@
 		}
 		//EJEMPLO DE USO (1):
 		// $marca = MarcaModel::getMarca('mazda');
-		// $marca->borrar2();
 		
 		//este método sirve para comprobar si existe la marca (en la BDD)
 		public static function validar($m){
@@ -78,13 +78,12 @@
 		//método que me recupere todas las marcas
 		//PROTOTIPO: public static array<MarcaModel> getMarcas()
 		public static function getMarcas($l=10, $o=0, $t='', $c='marca', $co='marca', $so='ASC'){
-		    //preparar la consulta
+	        //preparar la consulta
 		    $consulta = "SELECT * FROM marcas
                          WHERE $c LIKE '%$t%'
                          ORDER BY $co $so
 		                 LIMIT $l
 		                 OFFSET $o;";
-		    
 		    //conecto a la BDD y ejecuto la consulta
 		    $conexion = Database::get();
 		    $resultados = $conexion->query($consulta);
@@ -94,11 +93,11 @@
 		    while($marca = $resultados->fetch_object('MarcaModel'))
 		        $lista[] = $marca;
 		        
-		        //liberar memoria
-		        $resultados->free();
+	        //liberar memoria
+	        $resultados->free();
 		        
-		        //retornar la lista de RecetaModel
-		        return $lista;
+	        //retornar la lista de RecetaModel
+	        return $lista;
 		}
 	}
 ?>

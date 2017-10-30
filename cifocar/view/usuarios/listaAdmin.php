@@ -66,7 +66,7 @@
 					<th>email</th>
 					<th>Admin</th>
 					<th>Fecha</th>
-					<th colspan="3">Operaciones</th>
+					<th colspan="2">Operaciones</th>
 				</tr>
 				<?php 
 				foreach($usuarios as $usuario){
@@ -86,10 +86,10 @@
 				        echo "<td>$usuario->email</td>";
 				        echo "<td>$usuario->admin</td>";
 				        echo "<td>$usuario->fecha</td>";
-				        echo "<td class='foto'><a href='index.php?controlador=Usuario&operacion=ver&parametro=$usuario->id'><img class='boton' src='images/buttons/view.png' alt='ver detalles' title='ver detalles'/></a></td>";
-				        echo "<td class='foto'><a href='index.php?controlador=Usuario&operacion=editar&parametro=$usuario->id'><img class='boton' src='images/buttons/edit.png' alt='editar' title='editar'/></a></td>";
-				        echo "<td class='foto'><a href='index.php?controlador=Usuario&operacion=borrar&parametro=$usuario->id'><img class='boton' src='images/buttons/delete.png' alt='borrar' title='borrar'/></a></td>";
-				    echo "</tr>";
+// 				        echo "<td class='foto'><a href='index.php?controlador=Usuario&operacion=ver&parametro=$usuario->id'><img class='boton' src='images/buttons/view.png' alt='ver detalles' title='ver detalles'/></a></td>";
+				        echo "<td class='foto'><a href='index.php?controlador=Usuario&operacion=editar&parametro=$usuario->user'><img class='boton' src='images/buttons/edit.png' alt='editar' title='editar'/></a></td>";
+				        echo "<td class='foto'><a href='index.php?controlador=Usuario&operacion=baja&parametro=$usuario->user'><img class='boton' src='images/buttons/delete.png' alt='borrar' title='borrar'/></a></td>";
+				        echo "</tr>";
 				}
 				?>
 			</table>

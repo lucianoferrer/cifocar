@@ -23,6 +23,12 @@ RESET DE ESTILO Y REGLAS GENERALES
 .exito{color: #3a3;}
 .error{color: #a33;}
 
+.flex-container{ display:flex;flex-wrap: wrap;}
+.flex-containerV{display:flex;flex-direction: column;align-content: space-around;}
+.flex1{flex:1;} .flex1V{flex:1;} .flex2{flex:2;}
+.flex3{flex:3;} .flex4{flex:4;}  .flex5{flex:5;}
+.flex6{flex:6;}	.flex7{flex:7;}	.flex8{flex:8;}
+
 h1, h2, h3{
 	margin: 10px 0px 10px 0px;
 }
@@ -319,4 +325,16 @@ footer{
 
 footer a:hover{
 	color: orange;
+}
+
+input, select, option{
+	height: 20px;
+}
+
+.datos{
+	height:1.7em;
+	color:orange;
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
 }

@@ -1,19 +1,11 @@
 /*
-	Estilo básico del RMF recetas
-
 	autor: Robert Sallent
 	última revisión: 06/11/2016
 */
-
-
-
 /* ------------------------------------------------------------------------------------
 RESET DE ESTILO Y REGLAS GENERALES 
 ------------------------------------------------------------------------------------ */
-*{
-	margin: 0px;
-	padding: 0px;
-}
+*{margin: 0px;}
 
 .izquierda{float: left;}
 .derecha{float: right;}
@@ -29,31 +21,14 @@ RESET DE ESTILO Y REGLAS GENERALES
 .flex3{flex:3;} .flex4{flex:4;}  .flex5{flex:5;}
 .flex6{flex:6;}	.flex7{flex:7;}	.flex8{flex:8;}
 
-h1, h2, h3{
-	margin: 10px 0px 10px 0px;
-}
-
-p{
-	margin-bottom: 10px;
-}
-
-a{
-	text-decoration: none;
-	color: inherit;
-	cursor: pointer;
-}
-
-img.logo, img.boton{
-	height: 30px;
-	width: 30px;
-	vertical-align: middle;
-}
-
+h1, h2, h3{margin: 10px 0px 10px 0px;}
+p{margin-bottom: 10px;}
+a{text-decoration: none;color: inherit;cursor: pointer;}
+img.logo, img.boton{height: 30px;width: 30px;vertical-align: middle;}
 
 /* ------------------------------------------------------------------------------------
 INICIO DE LOS ESTILOS PARA CADA UNO DE LOS ELEMENTOS 
 ------------------------------------------------------------------------------------ */
-
 html{
 	background-color: #eef;
 	background-image: url('../images/template/background.jpg');
@@ -68,9 +43,7 @@ body{
 	padding: 2%;
 	margin: 10px auto 10px auto;
 	box-shadow: 0px 0px 8px rgb(60,60,60);	
-	
 }
-
 
 /* HEADER */
 header{
@@ -83,253 +56,81 @@ header{
 	color: white;
 	text-shadow: 1px 1px 3px #000;
 	border: solid 2px orange;
-}
-
-header{
 	display: flex;
 }
 
-header h1{
-	font-size: 5vw;	
-}
-header h2{
-	font-size: 2.5vw;	
-}
-
-header figure{
-	flex: 1;
-}
-
-header figure img{
-	vertical-align: middle;
-	width: 95%;
-}
-
-header hgroup{
-	flex: 5;
-}
-
+header h1{font-size: 5vw;}
+header h2{font-size: 2.5vw;	}
+header figure{flex: 1;}
+header figure img{vertical-align: middle;width: 95%;}
+header hgroup{flex: 5;}
 
 /* ZONAS DE LOGIN Y LOGOUT */
-#login, #logout{
-	text-align: right;
-	padding: 5px 0px 5px 0px;
-}
-
-#login input{
-	width: 80px;
-}
-
-#logout img{
-	display: inline-block;	
-	vertical-align: middle;
-	width: 30px;
-	height: 30px;
-}
-
-#logout form{
-	display: inline-block;
-}
-
-#login a, #logout a{
-	color: orange;	
-	font-weight: bold;
-}
-
+#login, #logout{text-align: right;padding: 5px 0px 5px 0px;}
+#login input{width: 80px;}
+#logout img{display: inline-block;vertical-align: middle;width: 30px;height: 30px;}
+#logout form{display: inline-block;}
+#login a, #logout a{color: orange;font-weight: bold;}
 
 /* BARRA DE NAVEGACION */
-nav{
-	background-color: orange;
-	color: white;
-	display: flex;
-}
-
-nav ul{
-	flex: 1;
-}
-
-nav ul:first-of-type{
-	text-align: left;
-}
-
-nav ul:nth-of-type(2){
-	text-align: right;
-}
-
-nav ul.menu>li{
-	display: inline-block;
-	list-style-type: none;
-	padding: 8px;	
-	transition: 0.5s;
-}
-nav ul.menu>li:hover{
-	color: orange;
-	background-color: white;	
-}
+nav{background-color: orange;color: white;display: flex;}
+nav ul{flex: 1;}
+nav ul:first-of-type{text-align: left;}
+nav ul:nth-of-type(2){text-align: right;}
+nav ul.menu>li{display: inline-block;list-style-type: none;padding: 8px;transition: 0.5s;}
+nav ul.menu>li:hover{color: orange;background-color: white;	}
 
 /* AREA PARA EL CONTENIDO */
-#content{
-	padding: 20px 0px 20px 0px;
-}
+#content{padding: 20px 0px 20px 0px;}
+#content p{text-align: justify;}
+#content p.volver{cursor:pointer;text-align: center;margin: 20px;color: brown;font-weight: bold;width: 100%;}
+#content h1, #content h2{color: orange;}
 
-#content p{
-	text-align: justify;
-}
+#content table{margin: auto;width: 100%;}
+#content table th{color: white;background-color: orange;text-align: center;font-weight: bold;}
+#content table td, #content table th{padding: 2px;}
+#content table tr:nth-of-type(even){background-color: #fea;}
+#content table tr:nth-of-type(odd){background-color: white;}
+#content table td.foto{text-align: center;}
+#content table img.miniatura{height: 40px;width: 40px;border:solid 2px orange;}
+#content table .boton{height: 20px;width: 20px;}
 
-#content p.volver{
-	cursor:pointer;
-	text-align: center;
-	margin: 20px;
-	color: brown;
-	font-weight: bold;
-	width: 100%;
-}
+#content form{padding: 10px;}
+#content form input{margin-top: 5px;padding: 4px;}
+#content form:not(.filtro) label{display: inline-block;min-width: 140px;}
+#content form img.imagenactual{width: 100px;height: 110px;margin: 10px;float: right;}
+#content form.filtro{text-align: right;padding: 2px;}
+#content form.filtro label{color: orange;font-style: italic;}
 
-#content h1, #content h2{
-	color: orange;
-}
+#content .contenedor{display: flex;}
+#content .contenedor .texto{flex: 3;border-radius: 5px;background-color: white;padding: 3%;margin: 10px 3% 10px 0%;box-shadow: 0px 0px 4px orange;}
+#content .contenedor .imagen{flex: 2;text-align: center;}
 
-#content table{
-	margin: auto;
-	width: 100%;
-}
+#content p.infolista{color: brown;font-style: italic;margin: 10px 0px 10px 0px;}
+#content ul.paginacion li{display: inline-block;background-color: orange;color: white;padding: 5px;transition: 0.5s;}
+#content ul.paginacion li:hover{background-color: white;color: orange;box-shadow: 0px 0px 2px orange;}
+#content ul.paginacion{margin-top: 5px;text-align: right;}
+#content ul.paginacion li:not(:first-of-type){border-left: solid 3px white;}
 
-#content table th{
-	color: white;
-	background-color: orange;
-	text-align: center;
-	font-weight: bold;
-}
-#content table td, #content table th{
-	padding: 2px;
-}
-#content table tr:nth-of-type(even){
-	background-color: #fea;
-}
-#content table tr:nth-of-type(odd){
-	background-color: white;
-}
-
-#content table td.foto{
-	text-align: center;
-}
-
-#content table img.miniatura{
-	height: 40px;
-	width: 40px;
-	border:solid 2px orange;
-}
-
-#content table .boton{
-	height: 20px;
-	width: 20px;
-}
-
-#content form{
-	padding: 10px;
-}
-
-#content form input{
-	margin-top: 5px;
-	padding: 4px;
-}
-#content form:not(.filtro) label{
-	display: inline-block;
-	min-width: 140px;
-}
-
-#content form img.imagenactual{
-	width: 100px;
-	height: 110px;
-	margin: 10px;
-	float: right;
-}
-
-#content form.filtro{
-	text-align: right;
-	padding: 2px;	
-}
-
-#content form.filtro label{
-	color: orange;
-	font-style: italic;
-}
-
-#content .contenedor{
-	display: flex;
-}
-
-#content .contenedor .texto{
-	flex: 3;
-	border-radius: 5px;
-	background-color: white;
-	padding: 3%;
-	margin: 10px 3% 10px 0%;
-	box-shadow: 0px 0px 4px orange;
-}
-
-#content .contenedor .imagen{
-	flex: 2;
-	text-align: center;
-}
-
-#content p.infolista{
-	color: brown;
-	font-style: italic;
-	margin: 10px 0px 10px 0px;
-}
-
-#content ul.paginacion li{
-	display: inline-block;
-	background-color: orange;
-	color: white;
-	padding: 5px;
-	transition: 0.5s;
-}
-
-#content ul.paginacion li:hover{
-	background-color: white;
-	color: orange;
-	box-shadow: 0px 0px 2px orange;
-}
-
-#content ul.paginacion{
-	margin-top: 5px;
-	text-align: right;
-}
-#content ul.paginacion li:not(:first-of-type){
-	border-left: solid 3px white;
-}
-
-#content .contenedor .imagen img:not(.boton){
-	width: 80%;
-	margin: 10px;
-	border: solid 4px white;
-}
-
-#content .contenedor .imagen figcaption{
-	font-size: 0.9em;
-	font-style: italic;
-}
+#content .contenedor .imagen img:not(.boton){width: 80%;margin: 10px;border: solid 4px white;}
+#content .contenedor .imagen figcaption{font-size: 0.9em;font-style: italic;}
 	
 /* FOOTER */
 footer{
+	height:50px;
 	padding: 20px;
 	background-color: orange;
-	
-	background-image: url('../images/logos/wide.png');
+	background-image: url('../images/logos/logo.png');
 	background-repeat: no-repeat;
-	background-size: 30%;
+	background-size: contain;
 	background-position: right;
 }
 
-footer a:hover{
-	color: orange;
-}
+footer p{color: white;}
+footer a{color: white;text-decoration:underline;}
+footer a:hover{color: white;}
 
-input, select, option{
-	height: 20px;
-}
+input, select, option{height: 20px;}
 
 .datos{
 	height:1.7em;
@@ -337,4 +138,9 @@ input, select, option{
     display: block;
     font-size: 1.5em;
     font-weight: bold;
+}
+
+.welcome{
+	text-align: center;
+	min-height: 300px;
 }

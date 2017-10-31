@@ -63,7 +63,7 @@
 		  
 		    //si me piden QUITAR un filtro
 		    if(!empty($_POST['quitarFiltro']))
-		        unset($_SESSION['filtroMarcass']);
+		        unset($_SESSION['filtroMarcas']);
 		    
 		    
 	        //comprobar si hay filtro

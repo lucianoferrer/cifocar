@@ -4,15 +4,15 @@
 		//PONE EL HEADER DE LA PAGINA
 		public static function header(){	?>
 			<header>
+				<hgroup>
+					<h1>Concesionario Cifocar</h1>
+					<h2>Desarrollo proyecto fin curso</h2>
+				</hgroup>
 				<figure>
 					<a href="index.php">
 						<img alt="logo concesionario Cifocar" src="images/logos/logo.png" />
 					</a>
 				</figure>
-				<hgroup>
-					<h1>Concesionario Cifocar</h1>
-					<h2>Desarrollo proyecto fin curso</h2>
-				</hgroup>
 			</header>
 		<?php }
 		
@@ -49,9 +49,10 @@
 				<ul class="menu">
 					<li><a href="index.php">Inicio</a></li>
 					<li><a href="index.php?controlador=Vehiculo&operacion=listar">Listado de Vehículos</a></li>
-					<?php if($usuario && $usuario->privilegio==1)
-					    echo '<li><a href="index.php?controlador=Vehiculo&operacion=registrar">Nuevo Vehículo</a></li> ';
-                        echo '<li><a href="index.php?controlador=Marca&operacion=listar">Marcas</a></li> ';?>
+					<?php if($usuario && $usuario->privilegio==1){
+                            echo '<li><a href="index.php?controlador=Vehiculo&operacion=registrar">Nuevo Vehículo</a></li> ';
+                            echo '<li><a href="index.php?controlador=Marca&operacion=listar">Marcas</a></li> ';
+		                  }?>
 					    </ul>
 				<?php 
 				//pone el menú del administrador
@@ -69,7 +70,8 @@
 		//PONE EL PIE DE PAGINA
 		public static function footer(){	?>
 			<footer>
-				<p>Herramienta de gestión de Cifocar</p>
+				<p>&copy; &reg;Herramienta de gestión de Cifocar</p>
+				<a href="mailto:mosketxu@gmail.com?Subject=Solicitud" target="_top">Pulsa para ayuda</a>
 			</footer>
 		<?php }
 	}

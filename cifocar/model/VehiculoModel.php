@@ -53,6 +53,14 @@
 			return Database::get()->query($consulta);
 		}
 		
+		//actualiza el estado del vehiculo en la BDD
+		public function actualizarEstado(){
+		    $consulta = "UPDATE vehiculos
+							  SET estado=$this->estado
+                            WHERE id=$this->id;";
+            echo $consulta;
+		    return Database::get()->query($consulta);
+		}
 		//Método que borra un vehiculo de la BDD (estático)
 		//PROTOTIPO: public static boolean borrar(int $id)
 		public static function borrar($id){

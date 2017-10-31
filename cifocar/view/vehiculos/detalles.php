@@ -42,7 +42,7 @@
     					elseif ($vehiculo->estado==4) echo "Baja";?></h2></div>
 					<div class="flex-container"><h3 class="flex1">Año Matriculacion:</h3><h2 class="flex3"><?php echo $vehiculo->any_matriculacion;?></h2></div>
 					<div class="flex-container"><h3 class="flex1">Detalles:</h3>	<h2 class="flex3"><?php echo $vehiculo->detalles;?></h2></div>
-					<div class="flex-container"><h3 class="flex1">Vendedor:</h3>	<h2 class="flex3"><?php echo $vehiculo->vendedor;?></h2></div>
+					<div class="flex-container"><h3 class="flex1">Vendedor:</h3>	<h2 class="flex3"><?php echo $vendedorNombre;?></h2></div>
         		</article>
         		
         		<figure class="imagen">

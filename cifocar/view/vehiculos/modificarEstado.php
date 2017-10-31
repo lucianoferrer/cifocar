@@ -51,7 +51,7 @@
 					<div class="flex-container"><h3 class="flex1">Año Matriculacion:</h3><h2 class="flex3"><?php echo $vehiculo->any_matriculacion;?></h2></div>
 					<div class="flex-container"><h3 class="flex1">Detalles:</h3>	<h2 class="flex3"><?php echo $vehiculo->detalles;?></h2></div>
 					<br/>
-					<input type="submit" name="modificar" value="Modificar estado"/><br/>    			
+					<input type="submit" name="modificarEstado" value="Modificar estado"/><br/>    			
     			</form>
     			
     			<div class="imagen">

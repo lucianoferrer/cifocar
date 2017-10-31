@@ -74,17 +74,28 @@
 			return $r;
 		}
 		
-		//este método debería retornar un usuario creado con los datos 
+		//este método debería retornar un usuario creado con los datos
 		//de la BDD (o NULL si no existe), a partir de un nombre de usuario
 		public static function getUsuario($u){
-			$user_table = Config::get()->db_user_table;
-			$consulta = "SELECT * FROM $user_table WHERE user='$u'";
-			$resultado = Database::get()->query($consulta);
-			
-			$us = $resultado->fetch_object('UsuarioModel');
-			$resultado->free();
-			
-			return $us;
+		    $user_table = Config::get()->db_user_table;
+		    $consulta = "SELECT * FROM $user_table WHERE user='$u'";
+		    $resultado = Database::get()->query($consulta);
+		    
+		    $us = $resultado->fetch_object('UsuarioModel');
+		    $resultado->free();
+		    
+		    return $us;
+		}
+		//este método debería retornar un usuario creado con los datos
+		//de la BDD (o NULL si no existe), a partir del ID de un usuario
+		public static function getUsuarioId($id){
+		    $user_table = Config::get()->db_user_table;
+		    $consulta = "SELECT * FROM $user_table WHERE id=$id";
+		    $resultado = Database::get()->query($consulta);
+		    $id = $resultado->fetch_object('UsuarioModel');
+		    $resultado->free();
+		    
+		    return $id;
 		}
 		
 		public static function getUsuarios($l=10, $o=0, $t='', $c='nombre', $co='nombre', $so='ASC'){

@@ -183,12 +183,17 @@
             //recuperar el vehiculo con el ID seleccionado
             $this->load('model/VehiculoModel.php');
             $vehiculo = VehiculoModel::getVehiculo($id);
+            if(!empty($vehiculo->vendedor))
+                $vendedorNombre=UsuarioModel::getUsuarioId($vehiculo->vendedor)->nombre;
+            else 
+                $vendedorNombre='';
             //comprobar que el vehiculo existe
             if(!$vehiculo)
                 throw new Exception('No existe el vehiclo con código '.$id);
             //cargar la vista de detalles
             $datos = array();
             $datos['usuario'] = Login::getUsuario();
+            $datos['vendedorNombre']=$vendedorNombre;            
             $datos['vehiculo'] = $vehiculo;
                 $this->load_view('view/vehiculos/detalles.php', $datos);
 	    }
@@ -283,7 +288,7 @@
             if(!$vehiculo)
                 throw new Exception('No existe el vehiculo');
         //si no me están enviando el formulario
-            if(empty($_POST['modificar'])){
+            if(empty($_POST['modificarEstado'])){
             //poner el formulario
                 $datos = array();
                 $datos['usuario'] = Login::getUsuario();
@@ -295,7 +300,7 @@
             //actualizar el estado del vehiculo con datos POST
                 $vehiculo->estado = $conexion->real_escape_string(intval($_POST['estado']));
             //modificar el vehiculo en la BDD
-                if(!$vehiculo->actualizar())
+                if(!$vehiculo->actualizarEstado())
                     throw new Exception('No se pudo actualizar');
             //cargar la vista de éxito
                 $datos = array();

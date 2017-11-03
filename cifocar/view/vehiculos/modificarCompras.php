@@ -84,17 +84,11 @@
     			
     			<div class="imagen">
 	        		<figure class="imagen">
-        			<?php 
-        			echo "<img src='$vehiculo->imagen' alt='Imagen de $vehiculo->modelo' title='Imagen de $vehiculo->modelo'/>";
-        			echo "<figcaption>$vehiculo->modelo</figcaption>";
-        			?>
-        		</figure>	
-            		<h3>Eliminar vehiculo</h3>
             			<?php 
-            			 echo "<a href='index.php?controlador=Vehiculo&operacion=borrar&parametro=$vehiculo->id'>";
-            			 echo "<img class='boton' src='images/buttons/delete.png' alt='Borrar'>";
-            			 echo "</a>";
+            			echo "<img src='$vehiculo->imagen' alt='Imagen de $vehiculo->modelo' title='Imagen de $vehiculo->modelo'/>";
+            			echo "<figcaption>$vehiculo->modelo</figcaption>";
             			?>
+	        		</figure>	
             	</div>	
         	</div>
         		

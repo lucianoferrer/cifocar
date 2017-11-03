@@ -28,7 +28,7 @@
 				<br/><label>Modelo:</label>
 				<input type="text" name="modelo" required="required"/><br/>
 				<label>Matrícula:</label>
-				<input type="text" name="matricula" pattern= "[0-9]{4}\W[A-Za-z]{3}$" title="4 números y tres letras separados por un guion o espacio" placeholder="0000-XXX" required="required"/><br/>
+				<input type="text" name="matricula" pattern= "[0-9]{4}[\s\-][A-Za-z]{3}$" title="4 números y tres letras separados por un guion o espacio" placeholder="0000-XXX" required="required"/><br/>
 				<label>Color:</label>
 				<input type="text" name="color" required="required"/><br/>
 				<label>Precio Venta:</label>

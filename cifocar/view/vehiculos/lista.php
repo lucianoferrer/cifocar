@@ -83,7 +83,10 @@
 				    echo "<td>$estado</td>";
 				    echo "<td>$vehiculo->any_matriculacion</td>";
 				    echo "<td class='foto'><a href='index.php?controlador=Vehiculo&operacion=ver&parametro=$vehiculo->id'><img class='boton' src='images/buttons/view.png' alt='ver detalles' title='ver detalles'/></a></td>";
-				    echo "<td class='foto'><a href='index.php?controlador=Vehiculo&operacion=editarEstado&parametro=$vehiculo->id'><img class='boton' src='images/buttons/edit.png' alt='ver detalles' title='ver detalles'/></a></td>";
+				    if ($usuario->privilegio==1)
+				        echo "<td class='foto'><a href='index.php?controlador=Vehiculo&operacion=editarCompras&parametro=$vehiculo->id'><img class='boton' src='images/buttons/edit.png' alt='ver detalles' title='ver detalles'/></a></td>";
+			        elseif ($usuario->privilegio==2)
+                        echo "<td class='foto'><a href='index.php?controlador=Vehiculo&operacion=editarEstado&parametro=$vehiculo->id'><img class='boton' src='images/buttons/edit.png' alt='ver detalles' title='ver detalles'/></a></td>";
 				    echo "</tr>";
 				}
 				?>

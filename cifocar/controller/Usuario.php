@@ -27,8 +27,12 @@
 				$u->privilegio = intval($_POST['privilegio']);
 				$u->email = $conexion->real_escape_string($_POST['email']);
 				$u->imagen = Config::get()->default_user_image;
-				$u->admin= !empty($_POST['admin'])?0:1 ;//si esta vacio como es null guarda 0 y si tiene valor como es true guarad 1 
-				
+				if (empty($_POST['admin']))
+				    $adm=0;
+				else 
+				    $adm=$_POST['admin'];
+				    $u->admin= empty($_POST['admin']) ? 0 : $_POST['admin'] ;//si esta vacio como es null guarda 0 y si tiene valor como es true guarad 1
+                
 				//recuperar y guardar la imagen (solamente si ha sido enviada)
 				if($_FILES['imagen']['error']!=4){
 					//el directorio y el tam_maximo se configuran en el fichero config.php
